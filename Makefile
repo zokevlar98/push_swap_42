@@ -6,6 +6,9 @@ RM = rm -rf
 
 SRCS =	mandatory/push_swap.c			\
 		utils/ft_atoi.c					\
+		utils/ft_exit.c					\
+		utils/parsing.c					\
+		utils/ft_put_fd.c				\
 
 OBJS = $(SRCS:.c=.o)
 
