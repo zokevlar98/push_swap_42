@@ -6,7 +6,7 @@
 /*   By: zqouri <zqouri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 20:37:37 by zqouri            #+#    #+#             */
-/*   Updated: 2024/06/08 17:32:04 by zqouri           ###   ########.fr       */
+/*   Updated: 2024/06/10 16:29:22 by zqouri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static int	ft_signe(int signe)
 	return (0);
 }
 
-int	ft_atoi(const char *str)
+int	ft_atoi(char *str)
 {
 	int			i;
 	int			signe;
@@ -38,7 +38,7 @@ int	ft_atoi(const char *str)
 	}
 	while (str[i] >= '0' && str[i] <= '9')
 	{
-		if (resu > 922337203685477580 
+		if (resu > 922337203685477580
 			|| (resu == 922337203685477580 && str[i] > 7))
 			return (ft_signe(signe));
 		resu = 10 * resu + str[i] - '0';

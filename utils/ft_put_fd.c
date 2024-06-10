@@ -6,7 +6,7 @@
 /*   By: zqouri <zqouri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/08 17:44:45 by zqouri            #+#    #+#             */
-/*   Updated: 2024/06/08 17:52:35 by zqouri           ###   ########.fr       */
+/*   Updated: 2024/06/10 16:28:56 by zqouri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	ft_putstr_fd(char *str, int fd)
 	{
 		while (str[i] != '\0')
 		{
-			ft_putchar_fd(str[i],fd);
+			ft_putchar_fd(str[i], fd);
 			i++;
 		}
 	}

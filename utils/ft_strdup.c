@@ -1,19 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_exit.c                                          :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zqouri <zqouri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/04 21:04:34 by zqouri            #+#    #+#             */
-/*   Updated: 2024/06/10 16:25:56 by zqouri           ###   ########.fr       */
+/*   Created: 2024/06/09 18:13:10 by zqouri            #+#    #+#             */
+/*   Updated: 2024/06/09 18:15:27 by zqouri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_exit(char *str)
+char	*ft_strdup(char *s1)
 {
-	ft_putstr_fd(str, 2);
-	exit(1);
+	int		i;
+	char	*str;
+
+	i = 0;
+	str = (char *)malloc(sizeof(char) * (ft_strlen(s1) + 1));
+	if (!str)
+		return (NULL);
+	while (s1[i] != '\0')
+	{
+		str[i] = s1[i];
+		i++;
+	}
+	str[i] = '\0';
+	return (str);
 }

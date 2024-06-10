@@ -9,6 +9,13 @@ SRCS =	mandatory/push_swap.c			\
 		utils/ft_exit.c					\
 		utils/parsing.c					\
 		utils/ft_put_fd.c				\
+		utils/clear_link_utils.c		\
+		utils/ft_split.c 				\
+		utils/ft_strlen.c 				\
+		utils/ft_strjoin.c 				\
+		utils/link_utils.c				\
+		utils/ft_strdup.c				\
+		utils/display.c					\
 
 OBJS = $(SRCS:.c=.o)
 
