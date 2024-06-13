@@ -5,6 +5,7 @@ CFLAGS = -Wall -Wextra -Werror -I ./includes
 RM = rm -rf
 
 SRCS =	mandatory/push_swap.c			\
+		mandatory/operation.c			\
 		utils/ft_atoi.c					\
 		utils/ft_exit.c					\
 		utils/parsing.c					\
@@ -16,6 +17,8 @@ SRCS =	mandatory/push_swap.c			\
 		utils/link_utils.c				\
 		utils/ft_strdup.c				\
 		utils/display.c					\
+		utils/utils.c					\
+		# mandatory/sort.c				\
 
 OBJS = $(SRCS:.c=.o)
 

@@ -6,7 +6,7 @@
 /*   By: zqouri <zqouri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 17:14:38 by zqouri            #+#    #+#             */
-/*   Updated: 2024/06/10 16:31:27 by zqouri           ###   ########.fr       */
+/*   Updated: 2024/06/13 21:46:31 by zqouri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ int		ft_isdigit(char *str);
 int		ft_check_empty(char *str);
 int		check_int(char *str);
 int		check_duplicate(char **str);
+int		check_sort(t_stack *a);
 void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *str, int fd);
 void	ft_putnbr_fd(int n, int fd);
@@ -48,7 +49,16 @@ void	ft_lstadd_back(t_stack **lst, t_stack *new);
 int		ft_lstsize(t_stack *lst);
 void	ft_lstdelone(t_stack *lst);
 void	ft_lstclear(t_stack **lst);
+t_stack	*Before_last(t_stack *a);
+//operations
+void	swap(t_stack **a, char c);
+void	rotate(t_stack **a, char c);
+void 	reverse_rotate(t_stack **a, char c);
+void	ft_push(t_stack **a, t_stack **b, char c);
+//sort
+void	main_sort(t_stack *a, t_stack *b);
 //TEST
 void	before_exit(void);
 void	ft_display(char **str);
+void	ft_dis_link(t_stack *a);
 #endif

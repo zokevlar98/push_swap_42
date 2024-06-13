@@ -6,7 +6,7 @@
 /*   By: zqouri <zqouri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 17:14:41 by zqouri            #+#    #+#             */
-/*   Updated: 2024/06/10 16:32:19 by zqouri           ###   ########.fr       */
+/*   Updated: 2024/06/13 21:54:20 by zqouri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,20 +56,46 @@ void	check_parse(int argc, char *argv[], t_stack **a)
 		ft_lstadd_back(a, node);
 		i++;
 	}
+	if (check_sort(*a))
+		ft_exit("Error\n");
 	ft_free(tab_parse);
 }
 
 int	main(int argc, char *argv[])
 {
 	t_stack	*a;
-	int		i;
+	t_stack	*b;
 
-	atexit(before_exit);
+	// atexit(before_exit);
 	a = NULL;
-	i = 1;
+	b = NULL;
+	b = ft_lstnew(100);
 	if (argc >= 1)
 	{
 		check_parse(argc, argv, &a);
+	t_stack	*head = a;
+		printf("before\n");
+		while(head)
+		{
+			printf("%d\n", head->content);
+			head = head->next;
+		}
+		printf("--------\n");
+		printf("after\n");
+		ft_push(&a, &b, 'b');
+	t_stack	*tmp = a;
+		while(tmp)
+		{
+			printf("%d\n", tmp->content);
+			tmp = tmp->next;
+		}
+	t_stack	*tmp2 = b;
+	printf("stack b--------\n");
+		while(tmp2)
+		{
+			printf("%d\n", tmp2->content);
+			tmp2 = tmp2->next;
+		}
 		ft_lstclear(&a);
 	}
 	else

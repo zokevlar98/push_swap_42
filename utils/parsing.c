@@ -6,7 +6,7 @@
 /*   By: zqouri <zqouri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/08 17:29:53 by zqouri            #+#    #+#             */
-/*   Updated: 2024/06/10 16:27:36 by zqouri           ###   ########.fr       */
+/*   Updated: 2024/06/13 15:31:28 by zqouri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int	ft_isdigit(char *str)
 	}
 	return (0);
 }
-
+	
 int	check_int(char *str)
 {
 	int	num;
@@ -96,4 +96,27 @@ int	check_duplicate(char **str)
 		i++;
 	}
 	return (0);
+}
+
+int	check_sort(t_stack *a)
+{
+	t_stack	*first = a;
+	t_stack	*second;
+
+	second = NULL;
+	if (!a)
+		return (1);
+	while (first->next)
+	{
+		second = first->next;
+		while (second)
+		{
+			if (first->content < second->content)
+				second = second->next;
+			else
+				return(0);
+		}
+		first = first->next;
+	}
+	return (1);
 }
