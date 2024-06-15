@@ -6,7 +6,7 @@
 /*   By: zqouri <zqouri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 15:29:12 by zqouri            #+#    #+#             */
-/*   Updated: 2024/06/15 18:11:41 by zqouri           ###   ########.fr       */
+/*   Updated: 2024/06/15 18:44:36 by zqouri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,17 @@ void	sort_three(t_stack *a)
 	else if (first < second && second > third && third  < first)
 		reverse_rotate(&a, 'a');
 }
-
+void	sort_five(t_stack *a, t_stack *b)
+{
+	ft_push(&a, &b, 'b');
+	ft_push(&a, &b, 'b');
+	sort_three(a);
+	if (b->content < b->next->content)
+		swap(&b, 'b');
+	ft_push(&a, &b, 'a');
+	if (a->content > a->next->next->next->content)
+		rotate(&a, 'a');
+	else if (a->content 
 
 void	main_sort(t_stack *a, t_stack *b)
 {
@@ -50,8 +60,8 @@ void	main_sort(t_stack *a, t_stack *b)
 		swap(&a, 'a');
 	else if (len <= 3)
 		sort_three(a);
-	// else if (len > 3 && len <= 5)
-	// 	sort_five(a, b);
+	else if (len > 3 && len <= 5)
+		sort_five(a, b);
 	// else if (len > 5 && len <= 100)
 	// 	sort_hundred(a, b);
 	// 	else
