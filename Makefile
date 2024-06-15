@@ -7,6 +7,7 @@ RM = rm -rf
 SRCS =	mandatory/push_swap.c			\
 		mandatory/operation.c			\
 		utils/ft_atoi.c					\
+		utils/check_args.c				\
 		utils/ft_exit.c					\
 		utils/parsing.c					\
 		utils/ft_put_fd.c				\
@@ -18,7 +19,7 @@ SRCS =	mandatory/push_swap.c			\
 		utils/ft_strdup.c				\
 		utils/display.c					\
 		utils/utils.c					\
-		# mandatory/sort.c				\
+		mandatory/sort.c				\
 
 OBJS = $(SRCS:.c=.o)
 

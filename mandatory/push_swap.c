@@ -6,7 +6,7 @@
 /*   By: zqouri <zqouri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 17:14:41 by zqouri            #+#    #+#             */
-/*   Updated: 2024/06/13 21:54:20 by zqouri           ###   ########.fr       */
+/*   Updated: 2024/06/15 16:45:22 by zqouri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,35 +70,33 @@ int	main(int argc, char *argv[])
 	a = NULL;
 	b = NULL;
 	b = ft_lstnew(100);
-	if (argc >= 1)
-	{
-		check_parse(argc, argv, &a);
-	t_stack	*head = a;
-		printf("before\n");
-		while(head)
-		{
-			printf("%d\n", head->content);
-			head = head->next;
-		}
-		printf("--------\n");
-		printf("after\n");
-		ft_push(&a, &b, 'b');
-	t_stack	*tmp = a;
-		while(tmp)
-		{
-			printf("%d\n", tmp->content);
-			tmp = tmp->next;
-		}
-	t_stack	*tmp2 = b;
-	printf("stack b--------\n");
-		while(tmp2)
-		{
-			printf("%d\n", tmp2->content);
-			tmp2 = tmp2->next;
-		}
-		ft_lstclear(&a);
-	}
-	else
-		exit(0);
+	check_args(argc, argv);
+	check_parse(argc, argv, &a);
+	main_sort(a, b);
+	ft_lstclear(&a);
 	return (0);
 }
+
+	// t_stack	*head = a;
+	// 	printf("before\n");
+	// 	while(head)
+	// 	{
+	// 		printf("%d\n", head->content);
+	// 		head = head->next;
+	// 	}
+	// 	printf("--------\n");
+	// 	printf("after\n");
+	// 	ft_push(&a, &b, 'b');
+	// t_stack	*tmp = a;
+	// 	while(tmp)
+	// 	{
+	// 		printf("%d\n", tmp->content);
+	// 		tmp = tmp->next;
+	// 	}
+	// t_stack	*tmp2 = b;
+	// printf("stack b--------\n");
+	// 	while(tmp2)
+	// 	{
+	// 		printf("%d\n", tmp2->content);
+	// 		tmp2 = tmp2->next;
+	// 	}

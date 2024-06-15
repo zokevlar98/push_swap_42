@@ -6,7 +6,7 @@
 /*   By: zqouri <zqouri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 17:14:38 by zqouri            #+#    #+#             */
-/*   Updated: 2024/06/13 21:46:31 by zqouri           ###   ########.fr       */
+/*   Updated: 2024/06/15 16:45:37 by zqouri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ typedef struct s_stack
 //utils
 int		ft_atoi(char *str);
 void	ft_exit(char *str);
+void	check_args(int argc, char *argv[]);
 int		ft_isdigit(char *str);
 int		ft_check_empty(char *str);
 int		check_int(char *str);
