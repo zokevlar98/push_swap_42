@@ -6,7 +6,7 @@
 /*   By: zqouri <zqouri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 17:14:41 by zqouri            #+#    #+#             */
-/*   Updated: 2024/06/15 16:45:22 by zqouri           ###   ########.fr       */
+/*   Updated: 2024/06/20 17:48:33 by zqouri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,9 @@ int	main(int argc, char *argv[])
 	// atexit(before_exit);
 	a = NULL;
 	b = NULL;
-	b = ft_lstnew(100);
+	b = (t_stack *)malloc(sizeof(t_stack));
+	if (!b)
+		ft_exit("Error\n");
 	check_args(argc, argv);
 	check_parse(argc, argv, &a);
 	main_sort(a, b);

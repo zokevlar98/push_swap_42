@@ -6,7 +6,7 @@
 /*   By: zqouri <zqouri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 15:29:12 by zqouri            #+#    #+#             */
-/*   Updated: 2024/06/15 18:44:36 by zqouri           ###   ########.fr       */
+/*   Updated: 2024/06/20 18:30:29 by zqouri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,21 +40,22 @@ void	sort_three(t_stack *a)
 }
 void	sort_five(t_stack *a, t_stack *b)
 {
-	ft_push(&a, &b, 'b');
-	ft_push(&a, &b, 'b');
+	help_sort_five(&a, &b);
+	help_sort_four(&a, &b);
 	sort_three(a);
-	if (b->content < b->next->content)
-		swap(&b, 'b');
 	ft_push(&a, &b, 'a');
-	if (a->content > a->next->next->next->content)
-		rotate(&a, 'a');
-	else if (a->content 
+	ft_push(&a, &b, 'a');
+	// printf("+++++++++++++\n");
+	// ft_dis_link(a);
+	// printf("==============\n");
+	// ft_dis_link(b);
+}
 
 void	main_sort(t_stack *a, t_stack *b)
 {
 	int	len;
 
-	(void)b;
+	// (void)b;
 	len = ft_lstsize(a);
 	if (len == 2)
 		swap(&a, 'a');

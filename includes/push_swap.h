@@ -6,7 +6,7 @@
 /*   By: zqouri <zqouri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 17:14:38 by zqouri            #+#    #+#             */
-/*   Updated: 2024/06/15 16:45:37 by zqouri           ###   ########.fr       */
+/*   Updated: 2024/06/20 16:53:56 by zqouri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ char	*ft_strjoin(char *s1, char *s2, char del);
 char	**ft_split(char const *s, char c);
 void	ft_free(char **tab);
 char	*ft_strdup(char *s1);
+int		ft_is_biggest_or_smallest(t_stack **a, int content);
 //linked_list
 t_stack	*ft_lstnew(int content);
 void	ft_lstadd_front(t_stack **lst, t_stack *new);
@@ -62,4 +63,7 @@ void	main_sort(t_stack *a, t_stack *b);
 void	before_exit(void);
 void	ft_display(char **str);
 void	ft_dis_link(t_stack *a);
+int		ft_check_smoll(t_stack *a);
+void	help_sort_five(t_stack **a, t_stack **b);
+void	help_sort_four(t_stack **a, t_stack **b);
 #endif

@@ -26,7 +26,7 @@ OBJS = $(SRCS:.c=.o)
 all : $(NAME)
 
 $(NAME): $(OBJS)
-	cc $(CFLAGS) $(OBJS) -o $(NAME)
+	cc $(CFLAGS) $(OBJS) -fsanitize=address -o $(NAME)
 
 %.o:%.c includes/so_long.h gnl/get_next_line.h
 	cc $(CFLAGS) -c $< -o $@
