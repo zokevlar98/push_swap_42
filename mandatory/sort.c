@@ -6,7 +6,7 @@
 /*   By: zqouri <zqouri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 15:29:12 by zqouri            #+#    #+#             */
-/*   Updated: 2024/06/20 18:30:29 by zqouri           ###   ########.fr       */
+/*   Updated: 2024/06/20 18:51:38 by zqouri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,20 @@ void	sort_three(t_stack *a)
 }
 void	sort_five(t_stack *a, t_stack *b)
 {
-	help_sort_five(&a, &b);
-	help_sort_four(&a, &b);
-	sort_three(a);
-	ft_push(&a, &b, 'a');
-	ft_push(&a, &b, 'a');
+	if (ft_lstsize(a) == 5)
+	{
+		help_sort_five(&a, &b);
+		help_sort_four(&a, &b);
+		sort_three(a);
+		ft_push(&a, &b, 'a');
+		ft_push(&a, &b, 'a');
+	}
+	else if (ft_lstsize(a) == 4)
+	{
+		help_sort_four(&a, &b);
+		sort_three(a);
+		ft_push(&a, &b, 'a');
+	}
 	// printf("+++++++++++++\n");
 	// ft_dis_link(a);
 	// printf("==============\n");
