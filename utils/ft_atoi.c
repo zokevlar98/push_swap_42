@@ -6,18 +6,18 @@
 /*   By: zqouri <zqouri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 20:37:37 by zqouri            #+#    #+#             */
-/*   Updated: 2024/06/10 16:29:22 by zqouri           ###   ########.fr       */
+/*   Updated: 2024/06/22 18:59:13 by zqouri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	ft_signe(int signe)
-{
-	if (signe > 0)
-		return (-1);
-	return (0);
-}
+// static int	ft_signe(int signe)
+// {
+// 	if (signe > 0)
+// 		return (-1);
+// 	return (0);
+// }
 
 int	ft_atoi(char *str)
 {
@@ -40,9 +40,26 @@ int	ft_atoi(char *str)
 	{
 		if (resu > 922337203685477580
 			|| (resu == 922337203685477580 && str[i] > 7))
-			return (ft_signe(signe));
+			ft_exit("Error!!!!!\n");
 		resu = 10 * resu + str[i] - '0';
 		i++;
 	}
 	return (resu * signe);
 }
+
+// int	check_max_min(char *str)
+// {
+// 	int	i;
+
+// 	i = 0;
+// 	if (!str)
+// 		ft_exit("Error\n");
+// 	while ((str[i] >= 9 && str[i] <= 13) || str[i] == ' ')
+// 		i++;
+// 	if (str[i] == '+' || str[i] == '-')
+// 		i++;
+// 	while (str[i] == '0')
+// 		i++;
+// 	if (ft_strlen(str + i) > 10 || )
+// 		return (1);
+// }

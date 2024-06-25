@@ -6,7 +6,7 @@
 /*   By: zqouri <zqouri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 17:14:38 by zqouri            #+#    #+#             */
-/*   Updated: 2024/06/20 16:53:56 by zqouri           ###   ########.fr       */
+/*   Updated: 2024/06/25 01:58:05 by zqouri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 typedef struct s_stack
 {
 	int		content;
+	int		position;
 	struct s_stack	*next;
 }	t_stack;
 
@@ -42,7 +43,8 @@ char	*ft_strjoin(char *s1, char *s2, char del);
 char	**ft_split(char const *s, char c);
 void	ft_free(char **tab);
 char	*ft_strdup(char *s1);
-int		ft_is_biggest_or_smallest(t_stack **a, int content);
+void	get_position(t_stack **a);
+int		get_index(t_stack **a, int position);
 //linked_list
 t_stack	*ft_lstnew(int content);
 void	ft_lstadd_front(t_stack **lst, t_stack *new);
@@ -59,11 +61,13 @@ void 	reverse_rotate(t_stack **a, char c);
 void	ft_push(t_stack **a, t_stack **b, char c);
 //sort
 void	main_sort(t_stack *a, t_stack *b);
+int		ft_check_small(t_stack *a);
+void	help_sort_five(t_stack **a, t_stack **b);
+void	help_sort_four(t_stack **a, t_stack **b);
+void	push_it(t_stack **a, t_stack **b, int c_chunk, int last_e);
+void	push_it_back(t_stack **a, t_stack **b);
 //TEST
 void	before_exit(void);
 void	ft_display(char **str);
 void	ft_dis_link(t_stack *a);
-int		ft_check_smoll(t_stack *a);
-void	help_sort_five(t_stack **a, t_stack **b);
-void	help_sort_four(t_stack **a, t_stack **b);
 #endif

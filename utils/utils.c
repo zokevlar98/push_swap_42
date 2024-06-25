@@ -6,7 +6,7 @@
 /*   By: zqouri <zqouri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 18:55:22 by zqouri            #+#    #+#             */
-/*   Updated: 2024/06/20 18:48:23 by zqouri           ###   ########.fr       */
+/*   Updated: 2024/06/25 02:01:20 by zqouri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,31 +28,7 @@ void	ft_dis_link(t_stack *a)
 	}
 }
 
-int	ft_is_biggest_or_smallest(t_stack **a, int content)
-{
-	int	biggest;
-	int	smallest;
-	t_stack	*tmp;
-
-	biggest = INT_MIN;
-	smallest = INT_MAX;
-	tmp = (*a);
-	while (tmp)
-	{
-		if (tmp->content > biggest)
-			biggest = tmp->content;
-		if (tmp->content < smallest)
-			smallest = tmp->content;
-		tmp = tmp->next;
-	}
-	if (content > biggest)
-		return (1);
-	if (content < smallest)
-		return (-1);
-	return (0);
-}
-
-int	ft_check_smoll(t_stack *a)
+int	ft_check_small(t_stack *a)
 {
 	int	index;
 	int lower;
@@ -77,7 +53,7 @@ int	ft_check_smoll(t_stack *a)
 void	help_sort_five(t_stack **a, t_stack **b)
 {
 	int index;
-	index = ft_check_smoll(*a);
+	index = ft_check_small(*a);
 	// printf("index = %d\n", index);
 	if (index == 1)
 		rotate(a, 'a');
@@ -99,7 +75,7 @@ void	help_sort_five(t_stack **a, t_stack **b)
 void	help_sort_four(t_stack **a, t_stack **b)
 {
 	int index;
-	index = ft_check_smoll(*a);
+	index = ft_check_small(*a);
 	if (index == 1)
 		swap(a, 'a');// swap work
 	if (index == 2)

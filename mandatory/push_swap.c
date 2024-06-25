@@ -6,7 +6,7 @@
 /*   By: zqouri <zqouri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 17:14:41 by zqouri            #+#    #+#             */
-/*   Updated: 2024/06/20 17:48:33 by zqouri           ###   ########.fr       */
+/*   Updated: 2024/06/25 01:59:14 by zqouri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ void	check_parse(int argc, char *argv[], t_stack **a)
 			|| check_duplicate(tab_parse))
 			ft_exit("Error\n");
 		node = ft_lstnew(ft_atoi(tab_parse[i]));
+		//check if we have overflow
 		if (!node)
 			ft_exit("Error\n");
 		ft_lstadd_back(a, node);
@@ -78,27 +79,3 @@ int	main(int argc, char *argv[])
 	ft_lstclear(&a);
 	return (0);
 }
-
-	// t_stack	*head = a;
-	// 	printf("before\n");
-	// 	while(head)
-	// 	{
-	// 		printf("%d\n", head->content);
-	// 		head = head->next;
-	// 	}
-	// 	printf("--------\n");
-	// 	printf("after\n");
-	// 	ft_push(&a, &b, 'b');
-	// t_stack	*tmp = a;
-	// 	while(tmp)
-	// 	{
-	// 		printf("%d\n", tmp->content);
-	// 		tmp = tmp->next;
-	// 	}
-	// t_stack	*tmp2 = b;
-	// printf("stack b--------\n");
-	// 	while(tmp2)
-	// 	{
-	// 		printf("%d\n", tmp2->content);
-	// 		tmp2 = tmp2->next;
-	// 	}

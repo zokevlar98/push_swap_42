@@ -6,7 +6,7 @@
 /*   By: zqouri <zqouri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/09 15:48:45 by zqouri            #+#    #+#             */
-/*   Updated: 2024/06/10 16:28:30 by zqouri           ###   ########.fr       */
+/*   Updated: 2024/06/25 02:09:42 by zqouri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,10 +63,13 @@ int	ft_lstsize(t_stack *lst)
 	int	i;
 
 	i = 0;
-	while (lst)
+	if (lst)
 	{
-		lst = lst->next;
-		i++;
+		while (lst)
+		{
+			lst = lst->next;
+			i++;
+		}
 	}
 	return (i);
 }

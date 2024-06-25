@@ -1,6 +1,6 @@
 NAME = push_swap
 
-CFLAGS = -Wall -Wextra -Werror -I ./includes 
+CFLAGS = -Wall -Wextra -Werror -g -fsanitize=address -I ./includes 
 
 RM = rm -rf
 
@@ -20,13 +20,14 @@ SRCS =	mandatory/push_swap.c			\
 		utils/display.c					\
 		utils/utils.c					\
 		mandatory/sort.c				\
+		mandatory/utils_algo.c			\
 
 OBJS = $(SRCS:.c=.o)
 
 all : $(NAME)
 
 $(NAME): $(OBJS)
-	cc $(CFLAGS) $(OBJS) -fsanitize=address -o $(NAME)
+	cc $(CFLAGS) $(OBJS) -o $(NAME)
 
 %.o:%.c includes/so_long.h gnl/get_next_line.h
 	cc $(CFLAGS) -c $< -o $@
