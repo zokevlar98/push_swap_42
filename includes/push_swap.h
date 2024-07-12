@@ -27,7 +27,8 @@ typedef struct s_stack
 }	t_stack;
 
 //utils
-int		ft_atoi(char *str);
+//5assni nzid fonction diyal clear struct diyali bach n7iyad leaks
+long		ft_atoi(char *str);
 void	ft_exit(char *str);
 void	check_args(int argc, char *argv[]);
 int		ft_isdigit(char *str);
@@ -60,12 +61,14 @@ void	rotate(t_stack **a, char c);
 void 	reverse_rotate(t_stack **a, char c);
 void	ft_push(t_stack **a, t_stack **b, char c);
 //sort
-void	main_sort(t_stack *a, t_stack *b);
+void	main_sort(t_stack **a, t_stack **b);
 int		ft_check_small(t_stack *a);
 void	help_sort_five(t_stack **a, t_stack **b);
 void	help_sort_four(t_stack **a, t_stack **b);
 void	push_it(t_stack **a, t_stack **b, int c_chunk, int last_e);
 void	push_it_back(t_stack **a, t_stack **b);
+void	sort_hundred(t_stack **a, t_stack **b, int nbr_chunk);
+
 //TEST
 void	before_exit(void);
 void	ft_display(char **str);

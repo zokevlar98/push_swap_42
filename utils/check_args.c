@@ -15,7 +15,7 @@
 void	check_args(int argc, char *argv[])
 {
 	if (argc == 1)
-		exit(EXIT_SUCCESS);
+		exit(EXIT_FAILURE);
 	if (argc == 2)
 	{
 		if (ft_check_empty(argv[1]) || ft_isdigit(argv[1]) || check_int(argv[1]))

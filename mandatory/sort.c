@@ -71,19 +71,19 @@ void	sort_hundred(t_stack **a, t_stack **b, int nbr_chunk)
 	push_it_back(a, b);
 }
 
-void	main_sort(t_stack *a, t_stack *b)
+void	main_sort(t_stack **a, t_stack **b)
 {
 	int	len;
 
-	len = ft_lstsize(a);
+	len = ft_lstsize(*a);
 	if (len == 2)
-		swap(&a, 'a');
+		swap(a, 'a');
 	else if (len <= 3)
-		sort_three(a);
+		sort_three(*a);
 	else if (len > 3 && len <= 5)
-		sort_five(a, b);
+		sort_five(*a, *b);
 	else if (len > 5 && len <= 100)
-		sort_hundred(&a, &b, 5);
-	// 	else
-	// 	sort_five_hundred(a, b);
+		sort_hundred(a, b, 5);
+	else if (len > 100 && len <= 500)
+		sort_hundred(a, b, 11);
 }

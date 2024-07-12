@@ -41,8 +41,8 @@ void	check_parse(int argc, char *argv[], t_stack **a)
 	char	**tab_parse;
 	t_stack	*node;
 
-	tab_parse = put_tab_parse(argc, argv);
 	i = 0;
+	tab_parse = put_tab_parse(argc, argv);
 	if (!tab_parse)
 		ft_exit("Error\n");
 	while (tab_parse[i])
@@ -70,12 +70,10 @@ int	main(int argc, char *argv[])
 	// atexit(before_exit);
 	a = NULL;
 	b = NULL;
-	b = (t_stack *)malloc(sizeof(t_stack));
-	if (!b)
-		ft_exit("Error\n");
-	check_args(argc, argv);
+	// check_args(argc, argv);
 	check_parse(argc, argv, &a);
-	main_sort(a, b);
+	get_position(&a);
+	main_sort(&a, &b);
 	ft_lstclear(&a);
 	return (0);
 }

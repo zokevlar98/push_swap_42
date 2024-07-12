@@ -76,8 +76,6 @@ void	push_it_back(t_stack **a, t_stack **b)
 {
 	int		index;
 
-	printf("size %d\n", ft_lstsize(*b));
-	exit(0);
 	while (ft_lstsize(*b) > 0)
 	{
 		index = get_index(b, (ft_lstsize(*b) - 1));

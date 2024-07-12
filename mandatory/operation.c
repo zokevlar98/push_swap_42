@@ -74,29 +74,26 @@ void 	reverse_rotate(t_stack **a, char c)
 
 void	ft_push(t_stack **a, t_stack **b, char c)
 {
-	t_stack *first_a;
-	t_stack *first_b;
-	t_stack *second_a;
-	t_stack *second_b;
+	t_stack *tmp;
 
-	first_a = (*a);
-	first_b = (*b);
-	second_a = (*a)->next;
-	second_b = (*b)->next;
-	if (!(*b) || !(*a))
-		return ;
 	if (c == 'a')//push a "de stack b vers stack a"
 	{
-		first_b->next = first_a;
-		(*a) = first_b;
-		(*b) = second_b;
+		tmp = (*b);
+		if (!tmp)
+			return ;
+		(*b) = (*b)->next;
+		tmp->next = NULL;
+		ft_lstadd_front(a, tmp);
 		ft_putstr_fd("pa\n", 1);
 	}
 	else if (c == 'b')//push b "de stack a vers stack b"
 	{
-		first_a->next = first_b;
-		*b = first_a;
-		*a = second_a;
+		tmp = (*a);
+		if (!tmp)
+			return ;
+		(*a) = (*a)->next;
+		tmp->next = NULL;
+		ft_lstadd_front(b, tmp);
 		ft_putstr_fd("pb\n", 1);
 	}
 }

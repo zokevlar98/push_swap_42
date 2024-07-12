@@ -37,6 +37,8 @@ int	ft_isdigit(char *str)
 	int	i;
 
 	i = 0;
+	if (!str)
+		return (1);
 	if ((str[0] == '-' || str[0] == '+') && str[1] == '\0')
 		return (1);
 	if (str[i] == '-' || str[i] == '+')
@@ -52,15 +54,11 @@ int	ft_isdigit(char *str)
 	
 int	check_int(char *str)
 {
-	int	num;
-	int	i;
+	long long	num;
+	int			i;
 
 	i = 0;
 	num = ft_atoi(str);
-	while (str[i] == 48)
-		i++;
-	if (num > INT_MAX || num < INT_MIN || ft_strlen(str + i) > 11)
-		return (1);
 	return (0);
 }
 
