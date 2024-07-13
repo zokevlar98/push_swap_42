@@ -80,7 +80,7 @@ void	push_it_back(t_stack **a, t_stack **b)
 	{
 		index = get_index(b, (ft_lstsize(*b) - 1));
 		if (index == -1)
-			ft_exit("Error\n");
+			ft_exit("Error\n", a);
 		else if (index == 0)
 			ft_push(a, b, 'a');
 		else if (index <= (ft_lstsize(*b) / 2))

@@ -35,9 +35,12 @@ void	sort_three(t_stack *a)
 		swap(&a, 'a');
 		rotate(&a, 'a');
 	}
-	else if (first < second && second > third && third  < first)
+	else if (first < second && second > third && third < first)
 		reverse_rotate(&a, 'a');
+	ft_lstclear(&a);
+	exit(EXIT_SUCCESS);
 }
+
 void	sort_five(t_stack *a, t_stack *b)
 {
 	if (ft_lstsize(a) == 5)
@@ -54,6 +57,8 @@ void	sort_five(t_stack *a, t_stack *b)
 		sort_three(a);
 		ft_push(&a, &b, 'a');
 	}
+	ft_lstclear(&a);
+	exit(EXIT_SUCCESS);
 }
 
 void	sort_hundred(t_stack **a, t_stack **b, int nbr_chunk)
@@ -76,7 +81,9 @@ void	main_sort(t_stack **a, t_stack **b)
 	int	len;
 
 	len = ft_lstsize(*a);
-	if (len == 2)
+	if (len == 1)
+		return ;
+	else if (len == 2)
 		swap(a, 'a');
 	else if (len <= 3)
 		sort_three(*a);

@@ -14,8 +14,8 @@
 
 void	swap(t_stack **a, char c)
 {
-	t_stack *first;
-	t_stack *second;
+	t_stack	*first;
+	t_stack	*second;
 
 	first = *a;
 	second = (*a)->next;
@@ -30,6 +30,7 @@ void	swap(t_stack **a, char c)
 			ft_putstr_fd("sb\n", 1);
 	}
 }
+
 void	rotate(t_stack **a, char c)
 {
 	t_stack	*first;
@@ -51,19 +52,19 @@ void	rotate(t_stack **a, char c)
 	}
 }
 
-void 	reverse_rotate(t_stack **a, char c)
+void	reverse_rotate(t_stack **a, char c)
 {
-	t_stack *first;
+	t_stack	*first;
 	t_stack	*last;
-	t_stack	*before_last;
+	t_stack	*before_last_var;
 
 	first = (*a);
 	last = ft_lstlast(*a);
-	before_last = Before_last(*a);
+	before_last_var = before_last(*a);
 	if ((*a) && (*a)->next)
 	{
 		last->next = first;
-		before_last->next = NULL;
+		before_last_var->next = NULL;
 		(*a) = last;
 		if (c == 'a')
 			ft_putstr_fd("rra\n", 1);
@@ -74,7 +75,7 @@ void 	reverse_rotate(t_stack **a, char c)
 
 void	ft_push(t_stack **a, t_stack **b, char c)
 {
-	t_stack *tmp;
+	t_stack	*tmp;
 
 	if (c == 'a')//push a "de stack b vers stack a"
 	{

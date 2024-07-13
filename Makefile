@@ -1,13 +1,12 @@
 NAME = push_swap
 
-CFLAGS = -Wall -Wextra -Werror -g -fsanitize=address -I ./includes 
+CFLAGS = -Wall -Wextra -Werror -g  -I ./includes 
 
 RM = rm -rf
 
 SRCS =	mandatory/push_swap.c			\
 		mandatory/operation.c			\
 		utils/ft_atoi.c					\
-		utils/check_args.c				\
 		utils/ft_exit.c					\
 		utils/parsing.c					\
 		utils/ft_put_fd.c				\

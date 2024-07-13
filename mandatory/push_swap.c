@@ -12,21 +12,21 @@
 
 #include "push_swap.h"
 
-char	**put_tab_parse(int argc, char *argv[])
+char	**put_tab_parse(char *argv[])
 {
 	int		i;
 	char	*tmp;
 	char	**tab_parse;
 
 	i = 0;
-	(void)argc;
 	tmp = ft_strdup("");
 	while (argv[++i])
 	{
 		if (ft_check_empty(argv[i]) == 1)
 		{
 			free(tmp);
-			ft_exit("Error\n");
+			ft_putstr_fd("Error\n", 2);
+			exit(EXIT_FAILURE);
 		}
 		tmp = ft_strjoin(tmp, argv[i], ' ');
 	}
@@ -35,30 +35,31 @@ char	**put_tab_parse(int argc, char *argv[])
 	return (tab_parse);
 }
 
-void	check_parse(int argc, char *argv[], t_stack **a)
+void	check_parse(char *argv[], t_stack **a)
 {
 	int		i;
 	char	**tab_parse;
 	t_stack	*node;
 
-	i = 0;
-	tab_parse = put_tab_parse(argc, argv);
+	i = -1;
+	tab_parse = put_tab_parse(argv);
 	if (!tab_parse)
-		ft_exit("Error\n");
-	while (tab_parse[i])
+	{
+		ft_free(tab_parse);
+		ft_putstr_fd("Error Malloc!\n", 2);
+		exit(EXIT_FAILURE);
+	}
+	while (tab_parse[++i])
 	{
 		if (ft_isdigit(tab_parse[i]) || check_int(tab_parse[i])
 			|| check_duplicate(tab_parse))
-			ft_exit("Error\n");
+			ft_exit("Error\n", a);
 		node = ft_lstnew(ft_atoi(tab_parse[i]));
-		//check if we have overflow
-		if (!node)
-			ft_exit("Error\n");
+		if (!node)//5assni nemssa7e node ila faillat
+			ft_exit("Error\n", a);
 		ft_lstadd_back(a, node);
-		i++;
 	}
-	if (check_sort(*a))
-		ft_exit("Error\n");
+	check_sort(*a);
 	ft_free(tab_parse);
 }
 
@@ -70,8 +71,9 @@ int	main(int argc, char *argv[])
 	// atexit(before_exit);
 	a = NULL;
 	b = NULL;
-	// check_args(argc, argv);
-	check_parse(argc, argv, &a);
+	if (argc == 1)
+		exit(EXIT_SUCCESS);
+	check_parse(argv, &a);
 	get_position(&a);
 	main_sort(&a, &b);
 	ft_lstclear(&a);
