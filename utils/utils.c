@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-t_stack	*Before_last(t_stack *a)
+t_stack	*before_last(t_stack *a)
 {
 	while (a && a->next->next)
 		a = a->next;
@@ -31,8 +31,8 @@ void	ft_dis_link(t_stack *a)
 int	ft_check_small(t_stack *a)
 {
 	int	index;
-	int lower;
-	int lower_index;
+	int	lower;
+	int	lower_index;
 
 	index = 0;
 	lower_index = 0;
@@ -52,9 +52,9 @@ int	ft_check_small(t_stack *a)
 
 void	help_sort_five(t_stack **a, t_stack **b)
 {
-	int index;
+	int	index;
+
 	index = ft_check_small(*a);
-	// printf("index = %d\n", index);
 	if (index == 1)
 		rotate(a, 'a');
 	if (index == 2)
@@ -74,10 +74,11 @@ void	help_sort_five(t_stack **a, t_stack **b)
 
 void	help_sort_four(t_stack **a, t_stack **b)
 {
-	int index;
+	int	index;
+
 	index = ft_check_small(*a);
 	if (index == 1)
-		swap(a, 'a');// swap work
+		swap(a, 'a');
 	if (index == 2)
 	{
 		rotate(a, 'a');

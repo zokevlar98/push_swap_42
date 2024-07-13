@@ -38,28 +38,8 @@ long	ft_atoi(char *str)
 	}
 	while (str[i] >= '0' && str[i] <= '9')
 	{
-		if (resu > 922337203685477580
-			|| (resu == 922337203685477580 && str[i] > 7))
-			ft_exit("Error!!!!!\n");
 		resu = 10 * resu + str[i] - '0';
 		i++;
 	}
 	return (resu * signe);
 }
-
-// int	check_max_min(char *str)
-// {
-// 	int	i;
-
-// 	i = 0;
-// 	if (!str)
-// 		ft_exit("Error\n");
-// 	while ((str[i] >= 9 && str[i] <= 13) || str[i] == ' ')
-// 		i++;
-// 	if (str[i] == '+' || str[i] == '-')
-// 		i++;
-// 	while (str[i] == '0')
-// 		i++;
-// 	if (ft_strlen(str + i) > 10 || )
-// 		return (1);
-// }

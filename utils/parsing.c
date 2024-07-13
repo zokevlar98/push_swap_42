@@ -51,7 +51,7 @@ int	ft_isdigit(char *str)
 	}
 	return (0);
 }
-	
+
 int	check_int(char *str)
 {
 	long long	num;
@@ -59,6 +59,8 @@ int	check_int(char *str)
 
 	i = 0;
 	num = ft_atoi(str);
+	if (num > INT_MAX || num < INT_MIN)
+		return (1);
 	return (0);
 }
 
@@ -81,7 +83,7 @@ int	check_duplicate(char **str)
 
 	i = 0;
 	if (ft_size(str) == 0)
-		ft_exit("Error\n");
+		return (1);
 	while (i < ft_size(str) - 1)
 	{
 		j = i + 1;
@@ -96,25 +98,20 @@ int	check_duplicate(char **str)
 	return (0);
 }
 
-int	check_sort(t_stack *a)
+void	check_sort(t_stack *a)
 {
-	t_stack	*first = a;
-	t_stack	*second;
+	t_stack	*tmp;
 
-	second = NULL;
-	if (!a)
-		return (1);
-	while (first->next)
+	while (a->next != NULL)
 	{
-		second = first->next;
-		while (second)
+		tmp = a->next;
+		while (tmp != NULL)
 		{
-			if (first->content < second->content)
-				second = second->next;
-			else
-				return(0);
+			if (a->content > tmp->content)
+				return ;
+			tmp = tmp->next;
 		}
-		first = first->next;
+		a = a->next;
 	}
-	return (1);
+	exit(EXIT_SUCCESS);
 }

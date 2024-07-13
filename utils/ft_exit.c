@@ -12,8 +12,10 @@
 
 #include "push_swap.h"
 
-void	ft_exit(char *str)
+void	ft_exit(char *str, t_stack **a)
 {
 	ft_putstr_fd(str, 2);
-	exit(1);
+	if (ft_lstsize(*a) != 0)
+		ft_lstclear(a);
+	exit(EXIT_SUCCESS);
 }
