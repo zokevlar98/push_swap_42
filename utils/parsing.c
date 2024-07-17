@@ -12,12 +12,6 @@
 
 #include "push_swap.h"
 
-void	before_exit(void)
-{
-	system("leaks push_swap");
-	printf("before exit\n");
-}
-
 int	ft_check_empty(char *str)
 {
 	int	i;
@@ -96,22 +90,4 @@ int	check_duplicate(char **str)
 		i++;
 	}
 	return (0);
-}
-
-void	check_sort(t_stack *a)
-{
-	t_stack	*tmp;
-
-	while (a->next != NULL)
-	{
-		tmp = a->next;
-		while (tmp != NULL)
-		{
-			if (a->content > tmp->content)
-				return ;
-			tmp = tmp->next;
-		}
-		a = a->next;
-	}
-	exit(EXIT_SUCCESS);
 }

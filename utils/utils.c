@@ -14,18 +14,11 @@
 
 t_stack	*before_last(t_stack *a)
 {
+	if (!a || !a->next)
+		return (NULL);
 	while (a && a->next->next)
 		a = a->next;
 	return (a);
-}
-
-void	ft_dis_link(t_stack *a)
-{
-	while (a)
-	{
-		printf("%d\n", a->content);
-		a = a->next;
-	}
 }
 
 int	ft_check_small(t_stack *a)
@@ -50,11 +43,15 @@ int	ft_check_small(t_stack *a)
 	return (lower_index);
 }
 
-void	help_sort_five(t_stack **a, t_stack **b)
+void	help_sort_five(t_stack **a)
 {
-	int	index;
+	t_stack	*tmp;
+	int		index;
 
-	index = ft_check_small(*a);
+	tmp = *a;
+	index = ft_check_small(tmp);
+	if (index == 0)
+		return ;
 	if (index == 1)
 		rotate(a, 'a');
 	if (index == 2)
@@ -69,14 +66,17 @@ void	help_sort_five(t_stack **a, t_stack **b)
 	}
 	if (index == 4)
 		reverse_rotate(a, 'a');
-	ft_push(a, b, 'b');
 }
 
-void	help_sort_four(t_stack **a, t_stack **b)
+void	help_sort_four(t_stack **a)
 {
-	int	index;
+	t_stack	*tmp;
+	int		index;
 
-	index = ft_check_small(*a);
+	tmp = *a;
+	index = ft_check_small(tmp);
+	if (index == 0)
+		return ;
 	if (index == 1)
 		swap(a, 'a');
 	if (index == 2)
@@ -86,5 +86,22 @@ void	help_sort_four(t_stack **a, t_stack **b)
 	}
 	if (index == 3)
 		reverse_rotate(a, 'a');
-	ft_push(a, b, 'b');
+}
+
+void	check_sort(t_stack *a)
+{
+	t_stack	*tmp;
+
+	while (a->next != NULL)
+	{
+		tmp = a->next;
+		while (tmp != NULL)
+		{
+			if (a->content > tmp->content)
+				return ;
+			tmp = tmp->next;
+		}
+		a = a->next;
+	}
+	exit(EXIT_SUCCESS);
 }

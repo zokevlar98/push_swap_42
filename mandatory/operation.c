@@ -6,7 +6,7 @@
 /*   By: zqouri <zqouri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 15:29:56 by zqouri            #+#    #+#             */
-/*   Updated: 2024/06/20 17:57:24 by zqouri           ###   ########.fr       */
+/*   Updated: 2024/07/16 04:22:31 by zqouri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,11 @@ void	reverse_rotate(t_stack **a, char c)
 
 	first = (*a);
 	last = ft_lstlast(*a);
+	if (!last)
+		return ;
 	before_last_var = before_last(*a);
+	if (!before_last_var)
+		return ;
 	if ((*a) && (*a)->next)
 	{
 		last->next = first;
@@ -77,7 +81,7 @@ void	ft_push(t_stack **a, t_stack **b, char c)
 {
 	t_stack	*tmp;
 
-	if (c == 'a')//push a "de stack b vers stack a"
+	if (c == 'a')
 	{
 		tmp = (*b);
 		if (!tmp)
@@ -87,7 +91,7 @@ void	ft_push(t_stack **a, t_stack **b, char c)
 		ft_lstadd_front(a, tmp);
 		ft_putstr_fd("pa\n", 1);
 	}
-	else if (c == 'b')//push b "de stack a vers stack b"
+	else if (c == 'b')
 	{
 		tmp = (*a);
 		if (!tmp)

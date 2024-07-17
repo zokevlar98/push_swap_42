@@ -6,18 +6,11 @@
 /*   By: zqouri <zqouri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 20:37:37 by zqouri            #+#    #+#             */
-/*   Updated: 2024/06/22 18:59:13 by zqouri           ###   ########.fr       */
+/*   Updated: 2024/07/16 04:26:47 by zqouri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-// static int	ft_signe(int signe)
-// {
-// 	if (signe > 0)
-// 		return (-1);
-// 	return (0);
-// }
 
 long	ft_atoi(char *str)
 {
@@ -39,6 +32,9 @@ long	ft_atoi(char *str)
 	while (str[i] >= '0' && str[i] <= '9')
 	{
 		resu = 10 * resu + str[i] - '0';
+		if ((resu > INT_MAX && signe == 1)
+			|| ((resu * -1) < INT_MIN && signe == -1))
+			return (resu * signe);
 		i++;
 	}
 	return (resu * signe);

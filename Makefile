@@ -1,6 +1,6 @@
 NAME = push_swap
 
-CFLAGS = -Wall -Wextra -Werror -g  -I ./includes 
+CFLAGS = -Wall -Wextra -Werror -I ./includes 
 
 RM = rm -rf
 
@@ -16,7 +16,6 @@ SRCS =	mandatory/push_swap.c			\
 		utils/ft_strjoin.c 				\
 		utils/link_utils.c				\
 		utils/ft_strdup.c				\
-		utils/display.c					\
 		utils/utils.c					\
 		mandatory/sort.c				\
 		mandatory/utils_algo.c			\
@@ -28,7 +27,7 @@ all : $(NAME)
 $(NAME): $(OBJS)
 	cc $(CFLAGS) $(OBJS) -o $(NAME)
 
-%.o:%.c includes/so_long.h gnl/get_next_line.h
+%.o:%.c includes/push_swap.h
 	cc $(CFLAGS) -c $< -o $@
 
 clean:

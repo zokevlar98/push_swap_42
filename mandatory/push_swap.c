@@ -6,7 +6,7 @@
 /*   By: zqouri <zqouri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 17:14:41 by zqouri            #+#    #+#             */
-/*   Updated: 2024/06/25 01:59:14 by zqouri           ###   ########.fr       */
+/*   Updated: 2024/07/16 04:07:25 by zqouri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void	check_parse(char *argv[], t_stack **a)
 			|| check_duplicate(tab_parse))
 			ft_exit("Error\n", a);
 		node = ft_lstnew(ft_atoi(tab_parse[i]));
-		if (!node)//5assni nemssa7e node ila faillat
+		if (!node)
 			ft_exit("Error\n", a);
 		ft_lstadd_back(a, node);
 	}
@@ -68,7 +68,6 @@ int	main(int argc, char *argv[])
 	t_stack	*a;
 	t_stack	*b;
 
-	// atexit(before_exit);
 	a = NULL;
 	b = NULL;
 	if (argc == 1)
@@ -76,6 +75,5 @@ int	main(int argc, char *argv[])
 	check_parse(argv, &a);
 	get_position(&a);
 	main_sort(&a, &b);
-	ft_lstclear(&a);
 	return (0);
 }
